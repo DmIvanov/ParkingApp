@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "403EA118B6566AE12812CF364E2E7DD26D2915F9",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "CD709D65057CC27A2AEBDD576C04B0102A56058D" : 9223372036854775807,
+    "403EA118B6566AE12812CF364E2E7DD26D2915F9" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "791170EA-030B-4189-9BAF-8B23D6457CC6",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "CD709D65057CC27A2AEBDD576C04B0102A56058D" : "",
+    "403EA118B6566AE12812CF364E2E7DD26D2915F9" : "solid-palm-tree\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "solid-palm-tree",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "solid-palm-tree.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:DmIvanov\/solid-palm-tree.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "403EA118B6566AE12812CF364E2E7DD26D2915F9"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:DmIvanov\/furry-guide.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "CD709D65057CC27A2AEBDD576C04B0102A56058D"
+    }
+  ]
+}
