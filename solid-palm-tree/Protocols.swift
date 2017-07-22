@@ -8,6 +8,7 @@
 
 import Foundation
 
+
 protocol LoginSceneDelegate: class {
     func userPicked(user: User)
 }

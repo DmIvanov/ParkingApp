@@ -56,5 +56,6 @@ extension LoginVC: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         dataSource.selectUser(index: indexPath.row)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
