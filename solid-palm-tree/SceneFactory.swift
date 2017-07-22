@@ -10,13 +10,18 @@ import UIKit
 
 class SceneFactory {
 
-    class func loginSceneInitialVC() -> UIViewController {
-        return mainStoryBoard().instantiateViewController(withIdentifier: "LoginVC")
+    // MARK: Public
+
+    class func loginSceneInitialVC() -> LoginVC {
+        return mainStoryBoard().instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
     }
 
-    class func parkingSceneInitialVC() -> UIViewController {
-        return UIViewController()
+    class func parkingSceneInitialVC() -> ParkingStartVC {
+        return mainStoryBoard().instantiateViewController(withIdentifier: "ParkingStartVC") as! ParkingStartVC
     }
+
+
+    // MARK: Private
 
     private class func mainStoryBoard() -> UIStoryboard {
         return UIStoryboard(name: "Main", bundle: nil)

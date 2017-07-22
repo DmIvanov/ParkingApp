@@ -13,8 +13,15 @@
 		28EC64B01F22759A00555D9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28EC64AE1F22759A00555D9C /* LaunchScreen.storyboard */; };
 		28EC64BB1F22759A00555D9C /* solid_palm_treeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EC64BA1F22759A00555D9C /* solid_palm_treeTests.swift */; };
 		28EC64C61F22762900555D9C /* Interactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EC64C51F22762900555D9C /* Interactor.swift */; };
-		28EC64C91F227C2800555D9C /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EC64C81F227C2800555D9C /* LoginVC.swift */; };
 		28EC64CB1F227CFA00555D9C /* SceneFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EC64CA1F227CFA00555D9C /* SceneFactory.swift */; };
+		28EC64CE1F232C7C00555D9C /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EC64CD1F232C7C00555D9C /* DataService.swift */; };
+		28EC64D01F232C9700555D9C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EC64CF1F232C9700555D9C /* User.swift */; };
+		28EC64DA1F23308200555D9C /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EC64D61F23308200555D9C /* LoginVC.swift */; };
+		28EC64DC1F2330A700555D9C /* ParkingStartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EC64DB1F2330A700555D9C /* ParkingStartVC.swift */; };
+		28EC64DE1F23456100555D9C /* LoginVCDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EC64DD1F23456100555D9C /* LoginVCDataSource.swift */; };
+		28EC64E01F23460300555D9C /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EC64DF1F23460300555D9C /* Protocols.swift */; };
+		28EC64E21F2347B900555D9C /* LoginTVCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EC64E11F2347B900555D9C /* LoginTVCellModel.swift */; };
+		28EC64E51F23A67C00555D9C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28EC64E41F23A67C00555D9C /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,8 +45,15 @@
 		28EC64BA1F22759A00555D9C /* solid_palm_treeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = solid_palm_treeTests.swift; sourceTree = "<group>"; };
 		28EC64BC1F22759A00555D9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		28EC64C51F22762900555D9C /* Interactor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interactor.swift; sourceTree = "<group>"; };
-		28EC64C81F227C2800555D9C /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginVC.swift; path = Login/LoginVC.swift; sourceTree = "<group>"; };
 		28EC64CA1F227CFA00555D9C /* SceneFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneFactory.swift; sourceTree = "<group>"; };
+		28EC64CD1F232C7C00555D9C /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataService.swift; path = DataLayer/DataService.swift; sourceTree = "<group>"; };
+		28EC64CF1F232C9700555D9C /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = DataLayer/User.swift; sourceTree = "<group>"; };
+		28EC64D61F23308200555D9C /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		28EC64DB1F2330A700555D9C /* ParkingStartVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingStartVC.swift; sourceTree = "<group>"; };
+		28EC64DD1F23456100555D9C /* LoginVCDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVCDataSource.swift; sourceTree = "<group>"; };
+		28EC64DF1F23460300555D9C /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		28EC64E11F2347B900555D9C /* LoginTVCellModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginTVCellModel.swift; sourceTree = "<group>"; };
+		28EC64E41F23A67C00555D9C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28EC64E51F23A67C00555D9C /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +81,7 @@
 				28EC64A41F22759A00555D9C /* solid-palm-tree */,
 				28EC64B91F22759A00555D9C /* solid-palm-treeTests */,
 				28EC64A31F22759A00555D9C /* Products */,
+				28EC64E31F23A67B00555D9C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -81,10 +97,12 @@
 		28EC64A41F22759A00555D9C /* solid-palm-tree */ = {
 			isa = PBXGroup;
 			children = (
-				28EC64C71F227C0600555D9C /* Login */,
+				28EC64D31F23308200555D9C /* Scenes */,
+				28EC64CC1F232C3B00555D9C /* DataLayer */,
 				28EC64A51F22759A00555D9C /* AppDelegate.swift */,
 				28EC64C51F22762900555D9C /* Interactor.swift */,
 				28EC64CA1F227CFA00555D9C /* SceneFactory.swift */,
+				28EC64DF1F23460300555D9C /* Protocols.swift */,
 				28EC64A91F22759A00555D9C /* Main.storyboard */,
 				28EC64AC1F22759A00555D9C /* Assets.xcassets */,
 				28EC64AE1F22759A00555D9C /* LaunchScreen.storyboard */,
@@ -102,12 +120,72 @@
 			path = "solid-palm-treeTests";
 			sourceTree = "<group>";
 		};
-		28EC64C71F227C0600555D9C /* Login */ = {
+		28EC64CC1F232C3B00555D9C /* DataLayer */ = {
 			isa = PBXGroup;
 			children = (
-				28EC64C81F227C2800555D9C /* LoginVC.swift */,
+				28EC64CD1F232C7C00555D9C /* DataService.swift */,
+				28EC64CF1F232C9700555D9C /* User.swift */,
 			);
-			name = Login;
+			name = DataLayer;
+			sourceTree = "<group>";
+		};
+		28EC64D31F23308200555D9C /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				28EC64D41F23308200555D9C /* History */,
+				28EC64D51F23308200555D9C /* Login */,
+				28EC64D71F23308200555D9C /* ParkingFinish */,
+				28EC64D81F23308200555D9C /* ParkingStart */,
+				28EC64D91F23308200555D9C /* Profile */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		28EC64D41F23308200555D9C /* History */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = History;
+			sourceTree = "<group>";
+		};
+		28EC64D51F23308200555D9C /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				28EC64D61F23308200555D9C /* LoginVC.swift */,
+				28EC64DD1F23456100555D9C /* LoginVCDataSource.swift */,
+				28EC64E11F2347B900555D9C /* LoginTVCellModel.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		28EC64D71F23308200555D9C /* ParkingFinish */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ParkingFinish;
+			sourceTree = "<group>";
+		};
+		28EC64D81F23308200555D9C /* ParkingStart */ = {
+			isa = PBXGroup;
+			children = (
+				28EC64DB1F2330A700555D9C /* ParkingStartVC.swift */,
+			);
+			path = ParkingStart;
+			sourceTree = "<group>";
+		};
+		28EC64D91F23308200555D9C /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		28EC64E31F23A67B00555D9C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				28EC64E41F23A67C00555D9C /* MapKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,8 +293,14 @@
 			files = (
 				28EC64C61F22762900555D9C /* Interactor.swift in Sources */,
 				28EC64CB1F227CFA00555D9C /* SceneFactory.swift in Sources */,
-				28EC64C91F227C2800555D9C /* LoginVC.swift in Sources */,
+				28EC64DC1F2330A700555D9C /* ParkingStartVC.swift in Sources */,
+				28EC64E21F2347B900555D9C /* LoginTVCellModel.swift in Sources */,
+				28EC64E01F23460300555D9C /* Protocols.swift in Sources */,
+				28EC64DA1F23308200555D9C /* LoginVC.swift in Sources */,
+				28EC64D01F232C9700555D9C /* User.swift in Sources */,
 				28EC64A61F22759A00555D9C /* AppDelegate.swift in Sources */,
+				28EC64CE1F232C7C00555D9C /* DataService.swift in Sources */,
+				28EC64DE1F23456100555D9C /* LoginVCDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,6 +506,7 @@
 				28EC64C11F22759A00555D9C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		28EC64C21F22759A00555D9C /* Build configuration list for PBXNativeTarget "solid-palm-treeTests" */ = {
 			isa = XCConfigurationList;
@@ -430,6 +515,7 @@
 				28EC64C41F22759A00555D9C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
