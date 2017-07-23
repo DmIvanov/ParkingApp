@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		28A359C51F23BD2500F2AE59 /* MenuOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A359C41F23BD2500F2AE59 /* MenuOperator.swift */; };
+		28A359C71F23D70800F2AE59 /* ParkingStartVCDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A359C61F23D70800F2AE59 /* ParkingStartVCDataSource.swift */; };
+		28A359C91F23EBFD00F2AE59 /* ParkingZone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A359C81F23EBFD00F2AE59 /* ParkingZone.swift */; };
+		28A359CC1F23F0C600F2AE59 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A359CB1F23F0C600F2AE59 /* APIClient.swift */; };
 		28EC64A61F22759A00555D9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EC64A51F22759A00555D9C /* AppDelegate.swift */; };
 		28EC64AB1F22759A00555D9C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28EC64A91F22759A00555D9C /* Main.storyboard */; };
 		28EC64AD1F22759A00555D9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28EC64AC1F22759A00555D9C /* Assets.xcassets */; };
@@ -37,6 +40,9 @@
 
 /* Begin PBXFileReference section */
 		28A359C41F23BD2500F2AE59 /* MenuOperator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuOperator.swift; sourceTree = "<group>"; };
+		28A359C61F23D70800F2AE59 /* ParkingStartVCDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingStartVCDataSource.swift; sourceTree = "<group>"; };
+		28A359C81F23EBFD00F2AE59 /* ParkingZone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ParkingZone.swift; path = DataLayer/ParkingZone.swift; sourceTree = "<group>"; };
+		28A359CB1F23F0C600F2AE59 /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIClient.swift; path = APILayer/APIClient.swift; sourceTree = "<group>"; };
 		28EC64A21F22759A00555D9C /* solid-palm-tree.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "solid-palm-tree.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		28EC64A51F22759A00555D9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		28EC64AA1F22759A00555D9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -77,6 +83,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		28A359CA1F23F07E00F2AE59 /* APILayer */ = {
+			isa = PBXGroup;
+			children = (
+				28A359CB1F23F0C600F2AE59 /* APIClient.swift */,
+			);
+			name = APILayer;
+			sourceTree = "<group>";
+		};
 		28EC64991F22759A00555D9C = {
 			isa = PBXGroup;
 			children = (
@@ -99,6 +113,7 @@
 		28EC64A41F22759A00555D9C /* solid-palm-tree */ = {
 			isa = PBXGroup;
 			children = (
+				28A359CA1F23F07E00F2AE59 /* APILayer */,
 				28EC64D31F23308200555D9C /* Scenes */,
 				28EC64CC1F232C3B00555D9C /* DataLayer */,
 				28EC64A51F22759A00555D9C /* AppDelegate.swift */,
@@ -128,6 +143,7 @@
 			children = (
 				28EC64CD1F232C7C00555D9C /* DataService.swift */,
 				28EC64CF1F232C9700555D9C /* User.swift */,
+				28A359C81F23EBFD00F2AE59 /* ParkingZone.swift */,
 			);
 			name = DataLayer;
 			sourceTree = "<group>";
@@ -172,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				28EC64DB1F2330A700555D9C /* ParkingStartVC.swift */,
+				28A359C61F23D70800F2AE59 /* ParkingStartVCDataSource.swift */,
 			);
 			path = ParkingStart;
 			sourceTree = "<group>";
@@ -295,6 +312,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				28A359C51F23BD2500F2AE59 /* MenuOperator.swift in Sources */,
+				28A359CC1F23F0C600F2AE59 /* APIClient.swift in Sources */,
 				28EC64C61F22762900555D9C /* Interactor.swift in Sources */,
 				28EC64CB1F227CFA00555D9C /* SceneFactory.swift in Sources */,
 				28EC64DC1F2330A700555D9C /* ParkingStartVC.swift in Sources */,
@@ -305,6 +323,8 @@
 				28EC64A61F22759A00555D9C /* AppDelegate.swift in Sources */,
 				28EC64CE1F232C7C00555D9C /* DataService.swift in Sources */,
 				28EC64DE1F23456100555D9C /* LoginVCDataSource.swift in Sources */,
+				28A359C91F23EBFD00F2AE59 /* ParkingZone.swift in Sources */,
+				28A359C71F23D70800F2AE59 /* ParkingStartVCDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

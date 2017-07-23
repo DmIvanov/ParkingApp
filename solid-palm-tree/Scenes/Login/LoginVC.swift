@@ -11,7 +11,8 @@ import UIKit
 class LoginVC: UIViewController {
 
     // MARK: - Properties
-    let dataSource = LoginVCDataSource()
+    fileprivate let dataSource = LoginVCDataSource()
+    @IBOutlet private var usersTV: UITableView!
 
 
     // MARK: - Lyfecycle
@@ -19,6 +20,20 @@ class LoginVC: UIViewController {
         super.viewDidLoad()
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(usersDidUpdate),
+            name: DSUsersDidUpdateNotification,
+            object: nil
+        )
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(self)
+    }
 
     // MARK: - Public
     func setSceneDelegate(delegate: LoginSceneDelegate) {
@@ -30,6 +45,11 @@ class LoginVC: UIViewController {
     }
 
     // MARK: - Private
+    @objc private func usersDidUpdate() {
+        DispatchQueue.main.async { [weak self] in
+            self?.usersTV.reloadData()
+        }
+    }
 
 
     // MARK: - Actions

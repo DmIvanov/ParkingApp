@@ -29,11 +29,11 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EYa-Lq-rYk" id="Exc-y1-KHI">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GYX-ou-k7B">
-                                                    <rect key="frame" x="15" y="0.0" width="345" height="43"/>
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -76,6 +76,9 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="p22-5g-zoJ" secondAttribute="bottom" constant="114" id="yEc-yB-7yt"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="usersTV" destination="p22-5g-zoJ" id="ujF-ji-KZX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -95,11 +98,32 @@
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="oEN-fK-apf">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="452"/>
+                                <connections>
+                                    <outlet property="delegate" destination="VLW-8Z-G1g" id="IUf-ae-Ydz"/>
+                                </connections>
                             </mapView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fbC-4i-AMb">
                                 <rect key="frame" x="0.0" y="460" width="375" height="97"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B0w-FM-Dfl">
+                                        <rect key="frame" x="162.5" y="8" width="50" height="31"/>
+                                        <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pwt-nm-T5T">
+                                        <rect key="frame" x="162.5" y="47" width="50" height="31"/>
+                                        <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="pwt-nm-T5T" firstAttribute="top" secondItem="B0w-FM-Dfl" secondAttribute="bottom" constant="8" id="CMF-rC-ilQ"/>
+                                    <constraint firstItem="pwt-nm-T5T" firstAttribute="centerX" secondItem="fbC-4i-AMb" secondAttribute="centerX" id="IuH-dN-qPe"/>
+                                    <constraint firstItem="B0w-FM-Dfl" firstAttribute="centerX" secondItem="fbC-4i-AMb" secondAttribute="centerX" id="Py7-XU-Y1p"/>
+                                    <constraint firstItem="B0w-FM-Dfl" firstAttribute="top" secondItem="fbC-4i-AMb" secondAttribute="top" constant="8" id="ZQN-1j-cRM"/>
                                     <constraint firstAttribute="height" constant="97" id="yPR-VM-rwf"/>
                                 </constraints>
                             </view>
@@ -127,6 +151,11 @@
                             <constraint firstItem="ICi-ud-hRu" firstAttribute="top" secondItem="DPH-o1-2V9" secondAttribute="bottom" constant="25" id="uc8-we-pHy"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="defaultVehicleLabel" destination="pwt-nm-T5T" id="QgH-Fa-qdR"/>
+                        <outlet property="mapView" destination="oEN-fK-apf" id="Ncu-Ir-bxW"/>
+                        <outlet property="selectedZoneLabel" destination="B0w-FM-Dfl" id="Ubj-UC-20a"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="seD-o3-bML" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

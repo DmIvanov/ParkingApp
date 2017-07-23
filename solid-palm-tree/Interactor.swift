@@ -119,6 +119,7 @@ class Interactor {
 
     func goToParking() {
         let startParkingVC = SceneFactory.parkingSceneInitialVC()
+        startParkingVC.setDataService(service: dataService)
         setNewNavigationWithRootVC(newRootVC: startParkingVC)
     }
 

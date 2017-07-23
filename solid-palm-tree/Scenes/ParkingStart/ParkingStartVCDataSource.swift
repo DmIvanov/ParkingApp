@@ -1,0 +1,59 @@
+//
+//  ParkingStartVCDataSource.swift
+//  solid-palm-tree
+//
+//  Created by Dmitrii on 22/07/2017.
+//  Copyright © 2017 DI. All rights reserved.
+//
+
+import Foundation
+
+class ParkingStartVCDataSource {
+
+    private let noVehiclePlaceholder = "No vehicle set as default"
+    private let noZonePlaceholder = "No zone selected"
+
+    // MARK: - Properties
+    private weak var dataService: DataService?
+    private var selectedZone: ParkingZone?
+
+    // MARK: - Lyfecycle
+
+
+    // MARK: - Public
+    func defaultVehicleText() -> String {
+        guard let dataService = dataService else {return ""}
+        guard let profile = dataService.myProfile else {return ""}
+        guard let defVehicle = profile.defaultVehicle else {return noVehiclePlaceholder}
+        return defVehicle.name
+    }
+
+    func selectedZoneText() -> String {
+        guard let zone = selectedZone else {return noZonePlaceholder}
+        return "Selected zone - \(zone.address)"
+    }
+
+    func setDataService(service: DataService) {
+        dataService = service
+    }
+
+    func updateZones() {
+        dataService?.updateZones()
+    }
+
+    func zones() -> [ParkingZone] {
+        guard let dataService = dataService else {return [ParkingZone]()}
+        return dataService.zones
+    }
+
+    func setSelectedZone(withTitle title: String) {
+        let foundZone = zones().first(where: {$0.address == title})
+        selectedZone = foundZone
+    }
+
+
+    // MARK: - Private
+
+
+    // MARK: - Actions
+}

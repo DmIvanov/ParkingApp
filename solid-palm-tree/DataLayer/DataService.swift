@@ -8,27 +8,47 @@
 
 import Foundation
 
+
+let DSUsersDidUpdateNotification = NSNotification.Name(rawValue: "DSUsersDidUpdateNotification")
+let DSZonesDidUpdateNotification = NSNotification.Name(rawValue: "DSZonesDidUpdateNotification")
+
+
 class DataService {
 
     // MARK: - Properties
     var myProfile: User?
-
-    private(set) var users: [User]
-
+    private(set) var users = [User]()
+    private(set) var zones = [ParkingZone]()
+    private let apiCLient = APIClient()
 
     // MARK: - Lyfecycle
     init() {
-        let firstTestUser = User(
-            userId: "",
-            userName: "test first",
-            firstName: "",
-            lastName: ""
-        )
-        users = [firstTestUser]
+        updateUsers()
     }
 
 
     // MARK: - Public
+    func updateUsers() {
+        apiCLient.getUsers { [weak self] (usersFromResponse, error) in
+            if error != nil {
+                //process error
+            } else if usersFromResponse != nil {
+                self?.users = usersFromResponse!
+                NotificationCenter.default.post(name: DSUsersDidUpdateNotification, object: nil)
+            }
+        }
+    }
+
+    func updateZones() {
+        apiCLient.getZones { [weak self] (zonesFromResponse, error) in
+            if error != nil {
+                //process error
+            } else if zonesFromResponse != nil {
+                self?.zones = zonesFromResponse!
+                NotificationCenter.default.post(name: DSZonesDidUpdateNotification, object: nil)
+            }
+        }
+    }
 
 
     // MARK: - Private

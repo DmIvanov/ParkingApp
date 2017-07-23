@@ -28,7 +28,8 @@ class LoginVCDataSource: NSObject {
 
     func numberOfUsers() -> Int {
         guard let service = dataService else {return 0}
-        return service.users.count
+        let number = service.users.count
+        return number
     }
 
     func cellModel(index: Int) -> LoginTVCellModel? {
