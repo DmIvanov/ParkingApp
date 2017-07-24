@@ -50,6 +50,13 @@ class DataService {
         }
     }
 
+    func addNewVehicle(vehicle: Vehicle) {
+        myProfile!.vehicles!.append(vehicle)
+        if myProfile!.vehicles!.count == 1 {
+            myProfile?.defaultVehicle = myProfile!.vehicles![0]
+        }
+    }
+
 
     // MARK: - Private
 

@@ -29,11 +29,6 @@ struct User {
         self.userName = apiDictionary["userName"] as? String ?? ""
         self.firstName = apiDictionary["firstName"] as? String ?? ""
         self.lastName = apiDictionary["lastName"] as? String ?? ""
+        self.vehicles = [Vehicle]()
     }
-}
-
-
-struct Vehicle {
-    let name: String
-    let number: String
 }

@@ -12,8 +12,8 @@ class SceneFactory {
 
     // MARK: Public
 
-    class func loginSceneInitialVC() -> LoginVC {
-        return mainStoryBoard().instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
+    class func listVC() -> ListVC {
+        return mainStoryBoard().instantiateViewController(withIdentifier: "ListVC") as! ListVC
     }
 
     class func parkingSceneInitialVC() -> ParkingStartVC {

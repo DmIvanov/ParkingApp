@@ -81,6 +81,33 @@ class ParkingStartVC: UIViewController {
 
 
     // MARK: - Actions
+    @IBAction private func startParkingPressed() {
+        let actionResult = dataSource.parkingAction()
+        if (actionResult.error != nil) {
+            let alert = UIAlertController(
+                title: "Impossible to start parking",
+                message: actionResult.error!,
+                preferredStyle: .alert
+            )
+            present(alert, animated: true, completion: {
+                let tapRecogniser = UITapGestureRecognizer(target: self, action: #selector(self.alertTapped))
+                alert.view.superview?.isUserInteractionEnabled = true
+                alert.view.superview?.addGestureRecognizer(tapRecogniser)
+            })
+        } else if (actionResult.action != nil) {
+            let parkingActionVC = SceneFactory.listVC()
+            let parkingActionDataSource = ParkingActionDataSource(
+                parkingAction: actionResult.action!,
+                dataService: dataSource.dataService!
+            )
+            parkingActionVC.dataSource = parkingActionDataSource
+            navigationController?.pushViewController(parkingActionVC, animated: true)
+        }
+    }
+
+    func alertTapped() {
+        dismiss(animated: true, completion: nil)
+    }
 }
 
 

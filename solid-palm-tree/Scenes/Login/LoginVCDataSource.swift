@@ -8,47 +8,87 @@
 
 import UIKit
 
-class LoginVCDataSource: NSObject {
+class LoginVCDataSource {
 
     // MARK: - Properties
-    private weak var sceneDelegate: LoginSceneDelegate?
-    private weak var dataService: DataService?
+    fileprivate weak var sceneDelegate: LoginSceneDelegate?
+    fileprivate weak var dataService: DataService?
+    fileprivate weak var vc: ListVC?
 
     // MARK: - Lyfecycle
+    init(dataService: DataService, sceneDelegate: LoginSceneDelegate, vc: ListVC) {
+        self.dataService = dataService
+        self.sceneDelegate = sceneDelegate
+        self.vc = vc
+    }
 
 
     // MARK: - Public
-    func setSceneDelegate(delegate: LoginSceneDelegate) {
-        sceneDelegate = delegate
-    }
-
-    func setDataService(service: DataService) {
-        dataService = service
-    }
-
-    func numberOfUsers() -> Int {
-        guard let service = dataService else {return 0}
-        let number = service.users.count
-        return number
-    }
-
-    func cellModel(index: Int) -> LoginTVCellModel? {
-        guard let user = self.user(index: index) else {return nil}
-        return LoginTVCellModel(user: user)
-    }
-
-    func selectUser(index: Int) {
-        guard let user = user(index: index) else {return}
-        sceneDelegate?.userPicked(user: user)
-    }
 
 
     // MARK: - Private
-    func user(index: Int) -> User? {
+    fileprivate func user(index: Int) -> User? {
         guard index < numberOfUsers() else {return nil}
         return dataService?.users[index]
     }
 
+    @objc fileprivate func usersDidUpdate() {
+        DispatchQueue.main.async { [weak self] in
+            self?.vc?.refreshUI()
+        }
+    }
 
-    // MARK: - Actions
+    fileprivate func numberOfUsers() -> Int {
+        guard let service = dataService else {return 0}
+        return service.users.count
+    }
+}
+
+
+extension LoginVCDataSource: ListVCDataSource {
+
+    func topLabelText() -> String {
+        return "Users".capitalized
+    }
+
+    func bottomButtonText() -> String? {
+        return "Add new user"
+    }
+
+    func bottomButtonPressed() {
+
+    }
+
+    func cellSelected(index: Int) {
+        guard let user = user(index: index) else {return}
+        sceneDelegate?.userPicked(user: user)
+    }
+
+    func cellModel(index: Int) -> ListVCCellModel? {
+        guard let user = user(index: index) else {return nil}
+        let model = ListVCCellModel(title: user.userName, subtitle: nil)
+        return model
+    }
+
+    func cellsAmount() -> Int {
+        return numberOfUsers()
+    }
+
+    func vcViewDidAppear() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(usersDidUpdate),
+            name: DSUsersDidUpdateNotification,
+            object: nil
+        )
+    }
+
+    func vcViewWillDisappear() {
+        NotificationCenter.default.removeObserver(self)
+    }
+}
+
+
+protocol LoginSceneDelegate: class {
+    func userPicked(user: User)
 }

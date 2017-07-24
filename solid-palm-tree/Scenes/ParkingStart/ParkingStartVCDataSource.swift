@@ -14,7 +14,7 @@ class ParkingStartVCDataSource {
     private let noZonePlaceholder = "No zone selected"
 
     // MARK: - Properties
-    private weak var dataService: DataService?
+    weak var dataService: DataService?
     private var selectedZone: ParkingZone?
 
     // MARK: - Lyfecycle
@@ -51,9 +51,21 @@ class ParkingStartVCDataSource {
         selectedZone = foundZone
     }
 
+    func parkingAction() -> (action: ParkingAction?, error: String?) {
+        guard let profile = dataService?.myProfile else {return (nil, "User's profile isn't specified!")}
+        guard let zone = selectedZone else {return (nil, "Zone is not selected!")}
+        guard let vehicle = profile.defaultVehicle else {return (nil, "Default vehicle is not specified!")}
+        let action = ParkingAction(
+            user: profile,
+            zone: zone,
+            vehicle: vehicle,
+            startDate: Date(),
+            endDate: nil
+        )
+        return (action, nil)
+    }
 
     // MARK: - Private
 
 
-    // MARK: - Actions
 }

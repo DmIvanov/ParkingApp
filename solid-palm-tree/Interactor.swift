@@ -58,6 +58,7 @@ class Interactor {
             message: nil,
             preferredStyle: .alert
         )
+        alert.addAction(parkingAction())
         alert.addAction(profileAction())
         alert.addAction(historyAction())
         alert.addAction(logOutAction())
@@ -78,6 +79,14 @@ class Interactor {
             title: "Log out",
             style: .default) { (action) in
                 self.goToLogin()
+        }
+    }
+
+    private func parkingAction() -> UIAlertAction {
+        return UIAlertAction(
+            title: "Start parking",
+            style: .default) { (action) in
+                self.goToParking()
         }
     }
 
@@ -110,10 +119,14 @@ class Interactor {
 
     // MARK: - Scene switching
     func goToLogin() {
-        let loginVC = SceneFactory.loginSceneInitialVC()
-        loginVC.setDataService(service: dataService)
-        loginVC.setSceneDelegate(delegate: self)
-        setNewNavigationWithRootVC(newRootVC: loginVC)
+        let listVC = SceneFactory.listVC()
+        let loginDataSource = LoginVCDataSource(
+            dataService: dataService,
+            sceneDelegate: self,
+            vc: listVC
+        )
+        listVC.dataSource = loginDataSource
+        setNewNavigationWithRootVC(newRootVC: listVC)
         navigationController.isNavigationBarHidden = true
     }
 
@@ -124,7 +137,13 @@ class Interactor {
     }
 
     func goToProfile() {
-
+        let listVC = SceneFactory.listVC()
+        let profileDataSource = ProfileDataSource(
+            dataService: dataService,
+            vc: listVC
+        )
+        listVC.dataSource = profileDataSource
+        setNewNavigationWithRootVC(newRootVC: listVC)
     }
 
     func goToHistory() {
