@@ -33,6 +33,27 @@ class APIClient: NSObject {
         }
     }
 
+    func postUser(user: User, completion:@escaping (String?, Error?)->()) {
+        let paramDict = user.dict()
+        var paramData: Data?
+        do {
+            paramData = try JSONSerialization.data(
+                withJSONObject: paramDict,
+                options: JSONSerialization.WritingOptions.prettyPrinted
+            )
+        } catch {
+            // error
+        }
+        executeRequest(type: .UsersPost, body: paramData) { (response, error) in
+            let userDict = response as! NSDictionary
+            if let name = userDict["name"] as? String {
+                completion(name, nil)
+            } else {
+                // completion(nil, error)
+            }
+        }
+    }
+
     func getZones(completion:@escaping ([ParkingZone]?, Error?)->()) {
         executeRequest(type: .ZonesGet) { (response, error) in
             let zonesDict = response as! NSDictionary
@@ -137,6 +158,7 @@ class APIClient: NSObject {
 
 enum APIRequestType {
     case UsersGet
+    case UsersPost
     case ZonesGet
     case ParkingActionPost
     case ParkingActionGet
@@ -144,7 +166,7 @@ enum APIRequestType {
 
     func url() -> URL {
         switch self {
-        case .UsersGet:
+        case .UsersGet, .UsersPost:
             return url(specialPath: "users.json")
         case .ZonesGet:
             return url(specialPath: "parkingZones.json")
@@ -157,7 +179,7 @@ enum APIRequestType {
 
     func httpMethod() -> String {
         switch self {
-        case .ParkingActionPost:
+        case .ParkingActionPost, .UsersPost:
             return "POST"
         case .ParkingActionPatch:
             return "PATCH"

@@ -65,18 +65,7 @@ class ListVC: UIViewController {
 
 
     // MARK: - Private
-    private func resetLabels() {
-
-    }
-
-
-    // MARK: - Actions
-    @IBAction func bottomButtonPressed() {
-        dataSource.bottomButtonPressed()
-    }
-
-    func viewTapped() {
-        view.endEditing(true)
+    fileprivate func updateInputData() {
         if dataSource.inputMode() {
             let cellls = tableView.visibleCells
             var cellsData = [(String, String)]()
@@ -86,6 +75,20 @@ class ListVC: UIViewController {
             }
             dataSource.passInputData(data: cellsData)
         }
+    }
+
+
+    // MARK: - Actions
+    @IBAction func bottomButtonPressed() {
+        if dataSource.inputMode() {
+            updateInputData()
+        }
+        dataSource.bottomButtonPressed()
+    }
+
+    func viewTapped() {
+        view.endEditing(true)
+        updateInputData()
     }
 }
 
@@ -121,6 +124,14 @@ extension ListVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         dataSource.cellSelected(index: indexPath.row)
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+}
+
+
+extension ListVC: UITextFieldDelegate {
+
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        updateInputData()
     }
 }
 

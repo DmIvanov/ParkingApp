@@ -27,16 +27,6 @@ class VehiclesListDataSource: NSObject {
             ("Name", "Ford Focus")
         ]
     }
-
-
-    // MARK: - Public
-
-
-    // MARK: - Private
-
-
-    // MARK: - Actions
-
 }
 
 
@@ -56,7 +46,6 @@ extension VehiclesListDataSource: ListVCDataSource {
         } else {
             return "Add new vehicle"
         }
-
     }
 
     func bottomButtonPressed() {

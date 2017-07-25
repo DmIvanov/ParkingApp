@@ -10,18 +10,21 @@ import Foundation
 
 
 struct User {
-    let userId: String
+    var userId: String?
     let userName: String
     let firstName: String
     let lastName: String
     var vehicles: [Vehicle]?
     var defaultVehicle: Vehicle?
 
-    init(userId: String, userName: String, firstName: String, lastName: String) {
+    init(userId: String? = nil, userName: String, firstName: String, lastName: String) {
         self.userId = userId
         self.userName = userName
         self.firstName = firstName
         self.lastName = lastName
+
+        // temporary
+        fillDefaultVehicles()
     }
 
     init(apiId: String, apiDictionary: NSDictionary) {
@@ -32,6 +35,15 @@ struct User {
 
         // temporary
         fillDefaultVehicles()
+    }
+
+    func dict() -> NSDictionary {
+        let dict = [
+            "firstName" : firstName,
+            "lastName" : lastName,
+            "userName" : userName,
+        ]
+        return NSDictionary(dictionary: dict)
     }
 
     private mutating func fillDefaultVehicles() {

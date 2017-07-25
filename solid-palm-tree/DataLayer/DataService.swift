@@ -65,12 +65,20 @@ class DataService {
         }
     }
 
+    func addNewUser(user: User) {
+        apiCLient.postUser(user: user) { [weak self] (userId, error) in
+            var user = user
+            user.userId = userId
+            self?.users.append(user)
+            NotificationCenter.default.post(name: DSUsersDidUpdateNotification, object: self)
+        }
+    }
+
     func addNewVehicle(vehicle: Vehicle) {
         myProfile!.vehicles!.append(vehicle)
         if myProfile!.vehicles!.count == 1 {
             myProfile?.defaultVehicle = myProfile!.vehicles![0]
         }
-        NotificationCenter.default.post(name: DSProfileDidUpdateNotification, object: self)
     }
 
     func startParkingAction(action: ParkingAction) {

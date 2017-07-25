@@ -56,7 +56,13 @@ extension LoginVCDataSource: ListVCDataSource {
     }
 
     func bottomButtonPressed() {
-
+        let listVC = SceneFactory.listVC()
+        let createAccountDataSource = CreateAccountDataSource(
+            dataService: dataService!,
+            vc: listVC
+        )
+        listVC.dataSource = createAccountDataSource
+        vc?.navigationController?.pushViewController(listVC, animated: true)
     }
 
     func cellSelected(index: Int) {

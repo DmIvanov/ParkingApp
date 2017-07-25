@@ -56,7 +56,7 @@ class ParkingStartVCDataSource {
         guard let zone = selectedZone else {return (nil, "Zone is not selected!")}
         guard let vehicle = profile.defaultVehicle else {return (nil, "Default vehicle is not specified!")}
         let action = ParkingAction(
-            userId: profile.userId,
+            userId: profile.userId!,
             zoneId: zone.zoneId,
             vehicleId: vehicle.vehicleId,
             startDate: Date()

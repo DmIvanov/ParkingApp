@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		283DACF51F27CBD500EE5E7B /* CreateAccountDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283DACF41F27CBD500EE5E7B /* CreateAccountDataSource.swift */; };
 		289AEF221F2731B300900C6E /* HistoryDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289AEF211F2731B200900C6E /* HistoryDataSource.swift */; };
 		28A359C51F23BD2500F2AE59 /* MenuOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A359C41F23BD2500F2AE59 /* MenuOperator.swift */; };
 		28A359C71F23D70800F2AE59 /* ParkingStartVCDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A359C61F23D70800F2AE59 /* ParkingStartVCDataSource.swift */; };
@@ -45,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		283DACF41F27CBD500EE5E7B /* CreateAccountDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountDataSource.swift; sourceTree = "<group>"; };
 		289AEF211F2731B200900C6E /* HistoryDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryDataSource.swift; sourceTree = "<group>"; };
 		28A359C41F23BD2500F2AE59 /* MenuOperator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuOperator.swift; sourceTree = "<group>"; };
 		28A359C61F23D70800F2AE59 /* ParkingStartVCDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingStartVCDataSource.swift; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				28EC64DD1F23456100555D9C /* LoginVCDataSource.swift */,
+				283DACF41F27CBD500EE5E7B /* CreateAccountDataSource.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -347,6 +350,7 @@
 				289AEF221F2731B300900C6E /* HistoryDataSource.swift in Sources */,
 				28EC64DC1F2330A700555D9C /* ParkingStartVC.swift in Sources */,
 				28A359E31F25053E00F2AE59 /* Vehicle.swift in Sources */,
+				283DACF51F27CBD500EE5E7B /* CreateAccountDataSource.swift in Sources */,
 				28A359E71F2529B000F2AE59 /* VehiclesListDataSource.swift in Sources */,
 				28EC64D01F232C9700555D9C /* User.swift in Sources */,
 				28EC64A61F22759A00555D9C /* AppDelegate.swift in Sources */,
