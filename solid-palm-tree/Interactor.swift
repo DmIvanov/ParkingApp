@@ -147,7 +147,13 @@ class Interactor {
     }
 
     func goToHistory() {
-
+        let listVC = SceneFactory.listVC()
+        let historyDataSource = HistoryDataSource(
+            dataService: dataService,
+            vc: listVC
+        )
+        listVC.dataSource = historyDataSource
+        setNewNavigationWithRootVC(newRootVC: listVC)
     }
 }
 

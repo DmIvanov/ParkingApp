@@ -13,20 +13,24 @@ class ProfileDataSource {
     // MARK: - Properties
     fileprivate weak var dataService: DataService?
     fileprivate weak var vc: ListVC?
-    fileprivate let data: [(String, String)]
+    fileprivate var data: [(String, String)]!
 
 
     // MARK: - Lyfecycle
     init(dataService: DataService, vc: ListVC) {
         self.dataService = dataService
         self.vc = vc
-        let profile = dataService.myProfile!
-        self.data = [
-            ("First name", profile.firstName),
-            ("Last name", profile.lastName),
-            ("Email", ""),
-            ("Default vehicle", profile.defaultVehicle?.name ?? "")
-        ]
+        refreshData()
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(profileDidUpdate),
+            name: DSProfileDidUpdateNotification,
+            object: nil
+        )
+    }
+
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
 
 
@@ -42,6 +46,20 @@ class ProfileDataSource {
         )
         listVC.dataSource = vahicleDataSource
         vc?.navigationController?.pushViewController(listVC, animated: true)
+    }
+
+    @objc private func profileDidUpdate() {
+        refreshData()
+    }
+
+    private func refreshData() {
+        guard let profile = dataService?.myProfile! else {return}
+        self.data = [
+            ("First name", profile.firstName),
+            ("Last name", profile.lastName),
+            ("Email", ""),
+            ("Default vehicle", profile.defaultVehicle?.name ?? "")
+        ]
     }
 }
 

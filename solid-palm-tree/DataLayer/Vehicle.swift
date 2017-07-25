@@ -9,4 +9,5 @@
 struct Vehicle {
     let name: String
     let number: String
+    let vehicleId: String
 }

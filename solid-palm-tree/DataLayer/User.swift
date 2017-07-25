@@ -29,6 +29,16 @@ struct User {
         self.userName = apiDictionary["userName"] as? String ?? ""
         self.firstName = apiDictionary["firstName"] as? String ?? ""
         self.lastName = apiDictionary["lastName"] as? String ?? ""
-        self.vehicles = [Vehicle]()
+
+        // temporary
+        fillDefaultVehicles()
+    }
+
+    private mutating func fillDefaultVehicles() {
+        vehicles = [
+            Vehicle(name: "Ford Mustang", number: "3425gt", vehicleId: "vehicleId0"),
+            Vehicle(name: "Chery Tiggo", number: "8756th", vehicleId: "vehicleId1")
+        ]
+        defaultVehicle = vehicles![0]
     }
 }

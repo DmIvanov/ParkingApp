@@ -9,16 +9,38 @@
 import Foundation
 
 
-class ParkingActionDataSource: NSObject {
+class ParkingActionDataSource {
 
     // MARK: - Properties
-    var parkingAction: ParkingAction
-    weak var dataService: DataService?
+    fileprivate var parkingAction: ParkingAction
+    fileprivate weak var dataService: DataService?
+    fileprivate weak var vc: ListVC?
+    fileprivate var data: [(String, String)]!
+
+    fileprivate lazy var dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        formatter.timeStyle = .short
+        return formatter
+    }()
+
 
     // MARK: - Lyfecycle
-    init(parkingAction: ParkingAction, dataService: DataService) {
+    init(parkingAction: ParkingAction, dataService: DataService, vc: ListVC) {
         self.parkingAction = parkingAction
         self.dataService = dataService
+        self.vc = vc
+        refreshData()
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(actionsDidUpdate),
+            name: DSActionsDidUpdateNotification,
+            object: nil
+        )
+    }
+
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
 
 
@@ -26,7 +48,43 @@ class ParkingActionDataSource: NSObject {
 
 
     // MARK: - Private
+    @objc private func actionsDidUpdate() {
+        parkingAction = dataService!.parkingActions.last!
+        refreshData()
+        DispatchQueue.main.async { [weak self] in
+            self?.vc?.refreshUI()
+        }
+    }
 
+    fileprivate func numberOfActions() -> Int {
+        return actions().count
+    }
+
+    fileprivate func actions() -> [ParkingAction] {
+        return dataService!.parkingActions
+    }
+
+    fileprivate func action(index: Int) -> ParkingAction? {
+        guard index < numberOfActions() else {return nil}
+        return dataService!.parkingActions[index]
+    }
+
+    private func refreshData() {
+        guard let profile = dataService?.myProfile! else {return}
+        let zone = dataService!.getZone(forId: parkingAction.zoneId)
+        self.data = [
+            ("User name", profile.userName),
+            ("Zone", zone!.address),
+            ("Vehicle", parkingAction.vehicleId)
+        ]
+        if let startDate = parkingAction.startDate {
+            data.append(("Start date",  dateFormatter.string(from: startDate)))
+        }
+        if let endDate = parkingAction.endDate {
+            data.append(("End date",  dateFormatter.string(from: endDate)))
+        }
+    }
+    
 
     // MARK: - Actions
 
@@ -43,21 +101,18 @@ extension ParkingActionDataSource: ListVCDataSource {
         return "Stop parking"
     }
 
-    func cellSelected(index: Int) {
-
-    }
-
     func bottomButtonPressed() {
-
+        parkingAction.endDate = Date()
+        dataService!.finishParkingAction(action: parkingAction)
     }
 
     func cellModel(index: Int) -> ListVCCellModel? {
-        //guard let user = user(index: index) else {return nil}
-        let model = ListVCCellModel(title: "", subtitle: nil)
+        let dataPair = data[index]
+        let model = ListVCCellModel(title: dataPair.0, subtitle: dataPair.1)
         return model
     }
 
     func cellsAmount() -> Int {
-        return 0
+        return data.count
     }
 }

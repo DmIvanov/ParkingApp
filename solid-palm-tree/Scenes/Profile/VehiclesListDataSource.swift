@@ -62,7 +62,8 @@ extension VehiclesListDataSource: ListVCDataSource {
     func bottomButtonPressed() {
         if inputMode() {
             if inputDataResult != nil {
-                let newVehicle = Vehicle(name: inputDataResult![0].1, number: inputDataResult![1].1)
+                let newId = "vehicleId" + "\(dataService!.myProfile!.vehicles!.count)"
+                let newVehicle = Vehicle(name: inputDataResult![0].1, number: inputDataResult![1].1, vehicleId: newId)
                 dataService?.addNewVehicle(vehicle: newVehicle)
             }
         }

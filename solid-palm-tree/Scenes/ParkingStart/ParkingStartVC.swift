@@ -98,10 +98,12 @@ class ParkingStartVC: UIViewController {
             let parkingActionVC = SceneFactory.listVC()
             let parkingActionDataSource = ParkingActionDataSource(
                 parkingAction: actionResult.action!,
-                dataService: dataSource.dataService!
+                dataService: dataSource.dataService!,
+                vc: parkingActionVC
             )
             parkingActionVC.dataSource = parkingActionDataSource
             navigationController?.pushViewController(parkingActionVC, animated: true)
+            dataSource.actionStarted(action: actionResult.action!)
         }
     }
 
