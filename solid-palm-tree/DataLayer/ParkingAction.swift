@@ -22,8 +22,9 @@ struct ParkingAction {
         self.vehicleId = apiDictionary["vehicleId"] as? String ?? ""
         self.zoneId = apiDictionary["zoneId"] as? String ?? ""
         if let startString = apiDictionary["startDate"] as? String {
-            let timeInt = TimeInterval(startString)
-            self.startDate = Date(timeIntervalSince1970: timeInt!)
+            if let timeInt = TimeInterval(startString) {
+                self.startDate = Date(timeIntervalSince1970: timeInt)
+            }
         }
         if let endString = apiDictionary["stopDate"] as? String {
             let timeInt = TimeInterval(endString)
