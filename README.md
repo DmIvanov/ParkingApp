@@ -1,6 +1,6 @@
 # ParkingApp
 
-There are several users in the app and it's possible to create new ones. Users have their profile with some personal data and set of cars. When some user logged in they can pick one of the available parking zones on a map view and park their car. When the parking is over the user stops it. There is a history of parkings of the user available as well.
+There are several users in the app and it's possible to create new ones. Users have their profiles with some personal data and set of cars. If the user is logged in they can pick one of parking zones available on a map view and park their car. When the parking is over the user stops it. There is a history of parkings of the user available as well.
 
 The app communicate to the remote API (backed by Firebase) to create, retrieve and change the app data: users, cars, parkings.
 
